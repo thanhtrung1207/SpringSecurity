@@ -1,7 +1,9 @@
 package com.example.ecommerce.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,7 @@ public class User {
     @Column(name = "username", nullable = false,unique = true)
     private String username;
 
+    @JsonIgnore
     @Column(name = "password",nullable = false,length = 1000)
     private String password;
 
@@ -30,6 +33,7 @@ public class User {
     @Column(name = "last_name",nullable = false)
     private String lastName;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Address> addresses = new ArrayList<>();
 

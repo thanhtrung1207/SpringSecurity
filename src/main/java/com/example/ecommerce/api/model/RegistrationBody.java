@@ -24,4 +24,5 @@ public class RegistrationBody {
     @NotNull
     @NotBlank
     private String lastName;
+
 }
